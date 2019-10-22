@@ -1,0 +1,22 @@
+layers: [15, 64, 128, 256, 512, 1024, 408, 208, 96, 1]
+learning_rate: 0.0001
+batch_size: 32
+epochs: 1000
+display_step_it: 0
+display_step_ep: 1
+perc_eval: 0.01
+multiple_data: False
+data_file: "./data/processed/sim_jc/train/train_sim_jc_permuted_shuffled.csv"
+data_length: 270000000
+save_network_to: "./models/net_sim_jc"
+test_only: False
+weight_initializer: xavier
+transfer_function: relu
+activation_function: sigmoid
+cost_function: sigmoid cross-entropy
+optimizer: adam
+dropout: 0.0
+offset: 3
+seed_init: 1 # use fix seeds to reproduce the network exactly else remove seeds
+seed_shuffle: 1
+log_level: info # can be debug, error, fatal, info or warn

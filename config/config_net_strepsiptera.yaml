@@ -1,0 +1,20 @@
+layers: [256, 382, 512, 892, 1024, 408, 324, 208, 96, 1]
+learning_rate: 0.0001
+batch_size: 32
+epochs: 10
+display_step_it: 0
+display_step_ep: 1
+perc_eval: 0.01
+multiple_data: False
+data_file: "./data/processed/strepsiptera/sim_freq_20190916_182755_shuffled.csv"
+data_length: 276480000
+save_network_to: "./models/net_strepsiptera"
+test_only: False
+weight_initializer: xavier
+transfer_function: relu
+activation_function: sigmoid
+cost_function: sigmoid cross-entropy
+optimizer: adam
+dropout: 0.0
+offset: 11
+log_level: info # can be debug, error, fatal, info or warn
