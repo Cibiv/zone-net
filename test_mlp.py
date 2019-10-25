@@ -4,12 +4,15 @@ from mlp import MLP
 # general libraries
 import argparse
 import os
+import logging
 # import numpy as np
 import pandas as pd
 
 import matplotlib.pyplot as plt
 # from matplotlib.ticker import FormatStrFormatter
 import seaborn as sns
+
+logging.basicConfig(level=logging.DEBUG)
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-c", "--config", default="config/config_net_sim_jc.yaml", help="config file of net")
@@ -67,10 +70,9 @@ df_farris = df_farris.sort_values(['pProb', 'len'], ascending=[True, True])
 
 # df_output.to_csv(args["output"]+'test_'+net+ '_seqLen_'+ args['seqLen'] +'.csv', index=False)
 
-# TODO: logging
-print('accuracy for farris: %f' %(df_farris['accuracy'].mean()))
-print('accuracy for felsenstein: %f' %(df_fels['accuracy'].mean()))
-print('overall accuracy: %f' %((df_farris['accuracy'].mean() + df_fels['accuracy'].mean())/2))
+logging.info('accuracy for farris: %f' %(df_farris['accuracy'].mean()))
+logging.info('accuracy for felsenstein: %f' %(df_fels['accuracy'].mean()))
+logging.info('overall accuracy: %f' %((df_farris['accuracy'].mean() + df_fels['accuracy'].mean())/2))
 
 # convert to matrix for heatmap
 far_matrix = df_farris.pivot("pProb", "qProb", "accuracy")
