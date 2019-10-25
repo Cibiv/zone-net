@@ -61,7 +61,7 @@ class MLP:
                     print("yaml config is not valid. Please follow spec and provide valid yaml.", e)
                     exit(1)
         except FileNotFoundError:
-            print("Config file not found.")
+            print("Config file with path {} not found.".format(path))
             exit(1)
     
     # writes network parameters to log file (as specified in the config file) 
@@ -350,14 +350,12 @@ class MLP:
         return accuracies
 
 
-# TODO: fix this
-try:
-    if sys.argv[0] != 'test_mlp.py' and len(sys.argv) > 2:
-        print(sys.argv)
+if __name__ == '__main__':
+    try:
         nn = MLP(sys.argv[1])
         nn.train()
-except IndexError as e:
-    print("Please specify a path to a config file as first commandline argument")
-    exit(1)
+    except IndexError as e:
+        print("Please specify a path to a config file as first commandline argument")
+        exit(1)
 
 
