@@ -8,6 +8,7 @@ pip install (--user) -r packages_required.txt
 ```
 if python3 and pip are already installed.
 
+To pull the raw data from this repository, please make sure that you have [Git Large File Storage](https://git-lfs.github.com/) installed.
 
 ## Network for simulated alignments using Jukes-Cantor model
 
