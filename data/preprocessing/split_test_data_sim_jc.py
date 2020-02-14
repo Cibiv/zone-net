@@ -10,7 +10,7 @@ args = vars(parser.parse_args())
 lengths=[0.025,0.075,0.125,0.175,0.225,0.275,0.325,0.375,0.425,0.475,0.525,0.575,0.625,0.675,0.725]
 
 # read file of all site pattern frequencies
-df=pd.read_csv('../interim/sim_jc/test/' + args['input'])
+df=pd.read_csv('../interim/zone/test/' + args['input'])
 
 # split input into several data files which contain data for specific p-,q-values
 for p in lengths:
