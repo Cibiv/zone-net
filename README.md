@@ -12,17 +12,17 @@ To pull the raw data from this repository, please make sure that you have [Git L
 
 ## Network for simulated alignments using Jukes-Cantor model
 
-The results presented in the manuscript stem from the network `net_sim_jc_2` saved in the models folder. This model can be retrained by first preprocessing the training data via 
+The results presented in the manuscript stem from the network `F-zoneNN_2` saved in the models folder. This model can be retrained by first preprocessing the training data via 
 ```sh
-./preprocess_sim_jc_train_data.sh
+./preprocess_zone_train_data.sh
 ```
-in the folder data/preprocessing and then training the network using `config_net_sim_jc.yaml` in the config folder
+in the folder data/preprocessing and then training the network using `config_F-zoneNN.yaml` in the config folder
 ```sh
-python3 mlp.py config/config_net_sim_jc.yaml
+python3 mlp.py config/config_F-zoneNN.yaml
 ```
 If an already trained network should be tested, first the test data has to be preprocessed by
 ```sh
-./preprocess_sim_jc_test_data.sh
+./preprocess_zone_test_data.sh
 ```
 in the folder data/preprocessing.
 
@@ -33,7 +33,7 @@ python3 test_mlp.py [-h]
 
 ## Network for Strepsiptera data
 
-The results presented in the manuscript stem from the network `net_strepsiptera_4` saved in the models folder. The preprocessing for the training data
+The results presented in the manuscript stem from the network `StrepsipteraNN_4` saved in the models folder. The preprocessing for the training data
 ```sh
 ./preprocess_strepsiptera_train_data.sh
 ```
@@ -47,13 +47,5 @@ can both be started in the folder data/preprocessing. The same holds for the pre
 ```
 The network can then be trained via
 ```sh
-python3 mlp.py config/config_net_strepsiptera.yaml train
+python3 mlp.py config/config_StrepsipteraNN.yaml train
 ```
-<!--and tested on simulated data by
-```sh
-./test_strepsiptera_sim.sh
-```
-The network can be tested on the real Strepsiptera quartets by
-```sh
-./test_strepsiptera_real_quartets.sh
-```-->
