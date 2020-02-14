@@ -6,9 +6,9 @@ display_step_it: 0
 display_step_ep: 1
 perc_eval: 0.01
 multiple_data: False
-data_file: "./data/processed/sim_jc/train/train_sim_jc_permuted_shuffled.csv"
+data_file: "./data/processed/zone/train/train_zone_permuted_shuffled.csv"
 data_length: 270000000
-save_network_to: "./models/net_sim_jc"
+save_network_to: "./models/F-zoneNN"
 test_only: False
 weight_initializer: xavier
 transfer_function: relu
