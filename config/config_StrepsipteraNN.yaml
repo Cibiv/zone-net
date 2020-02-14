@@ -8,7 +8,7 @@ perc_eval: 0.01
 multiple_data: False
 data_file: "./data/processed/strepsiptera/sim_freq_20190916_182755_shuffled.csv"
 data_length: 276480000
-save_network_to: "./models/net_strepsiptera"
+save_network_to: "./models/StrepsipteraNN"
 test_only: False
 weight_initializer: xavier
 transfer_function: relu
