@@ -61,7 +61,7 @@ logging.basicConfig(level=logging.INFO)
 model_params_path = sys.argv[2] if len(sys.argv) > 2 else "../raw/strepsiptera/model-params-msa/param-table.tsv"
 quartet_trees_path = sys.argv[1] if len(sys.argv) > 1 else "../raw/strepsiptera/quartet-tree-parameters/"
 seq_len = 1000
-num_it = sys.argv[3] if len(sys.argv) > 3 else 10000
+num_it = int(sys.argv[3]) if len(sys.argv) > 3 else 20000
 
 # create all possible 256 DNA site patterns
 patterns = {}
@@ -141,9 +141,10 @@ def compute_freq(seq):
     abs_frequencies = dict(collections.Counter(site_patterns))
     logging.debug(abs_frequencies)
 
-    patterns.update(abs_frequencies)
+    patterns_c=patterns.copy()
+    patterns_c.update(abs_frequencies)
 
-    rel_freq = {k: (v / seq_len) for k, v in patterns.items()}
+    rel_freq = {k: (v / seq_len) for k, v in patterns_c.items()}
     return rel_freq
 
 
@@ -154,11 +155,14 @@ def simulate(params):
 
     rand_seed = time.time()
 
+    newick=str(params[3])[1:] if params[3][0]=='"' else params[3]
+    newick=str(newick)[:-1] if newick[-1]=='"' else newick
+
     # call seq-gen and generate MSAs for current GTR parameter combination
     alpha = ' -a' + str(params[1]['alpha']) if params[1]['alpha'] != 1000 else ""
     execution_str = 'seq-gen -mGTR -q' + alpha + ' -z' + str(rand_seed) + ' -l ' + str(seq_len) \
                     + ' -f' + str(params[1]['freqs']) + ' -r' + str(params[1]['rates']) \
-                    + ' <<< "' + str(params[3]) + '"'
+                    + ' <<< "' + newick + '"'
     logging.debug(execution_str)
 
     proc = subprocess.Popen([execution_str], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -166,6 +170,8 @@ def simulate(params):
 
     msa = [x.decode() for x in proc.stdout.readlines()]
     logging.debug(msa)
+
+    msa.sort()
 
     single_seq = '\n'.join([x[10:] for x in msa[1:5]])
     logging.debug(single_seq)

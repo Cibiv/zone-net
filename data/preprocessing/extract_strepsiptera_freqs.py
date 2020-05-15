@@ -45,9 +45,10 @@ def compute_freq(seq):
     abs_frequencies = dict(collections.Counter(site_patterns))
     logging.debug(abs_frequencies)
 
-    patterns.update(abs_frequencies)
+    patterns_c=patterns.copy()
+    patterns_c.update(abs_frequencies)
 
-    rel_freq = {k: (v / seq_len) for k, v in patterns.items()}
+    rel_freq = {k: (v / seq_len) for k, v in patterns_c.items()}
     return rel_freq
 
 
@@ -56,7 +57,7 @@ data_file = open(data_file_name, 'a')
 
 path = '../raw/strepsiptera/quartet-alignments/'
 
-# loop through .phy files 
+# loop through .phy files
 for subdir, dirs, files in os.walk(path):
     for file in files:
         msa = open(path + file).readlines()
