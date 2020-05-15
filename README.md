@@ -47,5 +47,5 @@ can both be started in the folder data/preprocessing. The same holds for the pre
 ```
 The network can then be trained via
 ```sh
-python3 mlp.py config/config_StrepsipteraNN.yaml train
+python3 mlp.py config/config_StrepsipteraNN.yaml
 ```
