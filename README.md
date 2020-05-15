@@ -33,7 +33,7 @@ python3 test_mlp.py [-h]
 
 ## Network for Strepsiptera data
 
-The results presented in the manuscript stem from the network `StrepsipteraNN_4` saved in the models folder. The preprocessing for the training data
+The results presented in the manuscript stem from the network `StrepsipteraNN_3` saved in the models folder. The preprocessing for the training data
 ```sh
 ./preprocess_strepsiptera_train_data.sh
 ```
