@@ -27,7 +27,7 @@ logging.debug(header)
 seq_len=831
 
 # specify in which folder the quartet alignments are
-folder='../raw/strepsiptera/quartet-alignments'
+folder='../raw/strepsiptera/quartet-alignments/'
 
 # create data file
 data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/flytrap_freqs_permuted.csv'
