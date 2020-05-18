@@ -26,7 +26,7 @@ logging.debug(patterns)
 logging.debug(header)
 
 # create data file
-data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/quartet/strepsiptera/flytrap_freqs.csv'
+data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/flytrap_freqs.csv'
 data_file = open(data_file_name, 'w')
 data_file.write("file," + ','.join(header) + ",label\n")
 data_file.flush()
