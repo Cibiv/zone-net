@@ -3,6 +3,7 @@ import collections
 import logging
 import os
 import time
+import sys
 
 """
 Get permuted strepsiptera test frequencies

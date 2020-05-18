@@ -3,6 +3,7 @@ import collections
 import logging
 import os
 import time
+import sys
 
 """
 Extracts site pattern frequencies from Strepsiptera multiple sequence alignments.
