@@ -1,5 +1,6 @@
 import random
 import argparse
+import logging
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', required=True, help='path of input file')
@@ -24,3 +25,5 @@ file.writelines(header)
 # write shuffled data to output file
 file.writelines(rows)
 file.close()
+
+logging.info("Wrote shuffled data to " + args['output'] + ".")

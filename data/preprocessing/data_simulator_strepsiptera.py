@@ -218,7 +218,7 @@ def main(tree_path, gtr_path):
 
         data_file.close()
 
-    logging.info("Wrote to " + data_file_name + ". Terminating script.")
+    logging.info("Wrote to " + data_file_name + ".")
 
 
 main(quartet_trees_path, model_params_path)

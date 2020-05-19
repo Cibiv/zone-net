@@ -1,5 +1,6 @@
 import argparse
 import csv
+import logging
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', required=True, help='input csv-file')
@@ -50,3 +51,5 @@ with file:
         writes.writerow([row[0],row[1],row[3],row[4],row[5],row[14],row[7],row[11],row[17],row[10],row[8],row[18],row[13],row[6],row[15],row[16],row[9],row[12],row[19],row[20]])
         writes.writerow([row[0],row[1],row[3],row[4],row[5],row[14],row[10],row[8],row[18],row[6],row[13],row[15],row[11],row[7],row[17],row[12],row[16],row[9],row[19],row[20]])
         writes.writerow([row[0],row[1],row[3],row[4],row[5],row[14],row[10],row[8],row[18],row[7],row[11],row[17],row[13],row[6],row[15],row[16],row[12],row[9],row[19],row[20]])
+
+logging.info("Wrote permuted data to " + args['output'] + ".")

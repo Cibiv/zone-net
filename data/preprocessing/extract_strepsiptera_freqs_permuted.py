@@ -82,7 +82,7 @@ def main():
                 data_file.flush()
                 data_file.close()
 
-    logging.info("Wrote to " + data_file_name + ". Terminating script.")
+    logging.info("Wrote to " + data_file_name + ".")
 
 
 main()

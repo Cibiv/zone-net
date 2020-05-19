@@ -1,5 +1,6 @@
 import argparse
 import pandas as pd
+import logging
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', required=True, help='input file in interim folder')
@@ -17,3 +18,5 @@ for p in lengths:
     for q in lengths:
         data = df[(df['pProb']==p) & (df['qProb']==q)]
         data.to_csv(args['output'] + '/' + args['input'][:-4] + '_p' + str(p) + '_q' + str(q) + '.csv', index=False)
+
+logging.info("Saved the datafiles to the folder '" + args['output'] + "'.")
