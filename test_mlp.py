@@ -15,8 +15,8 @@ import seaborn as sns
 logging.basicConfig(level=logging.DEBUG)
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-c", "--config", default="config/config_net_sim_jc.yaml", help="config file of net")
-ap.add_argument("-n", "--net", default="net_sim_jc_2", help="network-name")
+ap.add_argument("-c", "--config", default="config/config_F-zoneNN.yaml", help="config file of net")
+ap.add_argument("-n", "--net", default="F-zoneNN_2", help="network-name")
 ap.add_argument("-o", "--output", default=".", help="output directory for heatmap")
 ap.add_argument("-l", "--seqLen", default="1000", help="sequence length for testing")
 
