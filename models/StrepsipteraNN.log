@@ -5,7 +5,7 @@ epochs: 10
 display_step_it: 0
 display_step_ep: 1
 perc_eval: 0.01
-data_file: ./data/processed/strepsiptera/sim_freq_train_20200420_shuffle_seed200_concat.csv
+data_file: ./data/processed/strepsiptera/train/sim_freq_train_shuffled.csv
 data_length: 552960000
 save_network_to: ./models/StrepsipteraNN
 weight_initializer: xavier
