@@ -41,9 +41,13 @@ and for the test data
 ```sh
 ./preprocess_strepsiptera_test_data.sh
 ```
-can both be started in the folder data/preprocessing. The same holds for the preprocessing of the Strepsiptera data
+can both be started in the folder data/preprocessing. The same holds for the extraction of the frequencies from the Strepsiptera quartets
 ```sh
 ./preprocess_strepsiptera_real_quartets.sh
+```
+as well as for the extraction of the frequencies from the differently ordered Strepsiptera quartets
+```sh
+./preprocess_strepsiptera_real_quartets_permuted.sh
 ```
 The network can then be trained via
 ```sh
