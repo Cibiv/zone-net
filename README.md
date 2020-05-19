@@ -28,7 +28,7 @@ in the folder data/preprocessing.
 
 Testing of the network can be done by executing:
 ```sh
-python3 test_mlp.py [-h]
+python3 test_zone.py [-h]
 ```
 
 ## Network for Strepsiptera data
