@@ -9,10 +9,10 @@ import logging
 import pandas as pd
 
 import matplotlib.pyplot as plt
-# from matplotlib.ticker import FormatStrFormatter
+matplotlib.use('Agg')
 import seaborn as sns
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-c", "--config", default="config/config_F-zoneNN.yaml", help="config file of net")
