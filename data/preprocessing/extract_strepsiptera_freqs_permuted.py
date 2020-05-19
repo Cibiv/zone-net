@@ -27,10 +27,10 @@ logging.debug(header)
 seq_len=831
 
 # specify in which folder the quartet alignments are
-folder='../raw/strepsiptera/quartet-alignments/'
+path='../raw/strepsiptera/quartet-alignments/'
 
 # create data file
-data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/flytrap_freqs_permuted.csv'
+data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/strepsiptera_freqs_permuted.csv'
 data_file = open(data_file_name, 'w')
 data_file.write("file," + ','.join(header) + ",label\n")
 data_file.flush()
@@ -42,6 +42,7 @@ def compute_freq(seq):
     # get and sort all sites
     site_patterns = [''.join(k) for k in zip(*seq.split())]
     site_patterns.sort()
+    site_patterns = [x.upper() for x in site_patterns]
     logging.debug(site_patterns)
 
     # count how often each site pattern occurs
@@ -60,9 +61,9 @@ def compute_freq(seq):
 def main():
     # for each quartet number import alignment
     for quartet in range(1,25):
-        for filename in os.listdir(folder+'.'):
+        for filename in os.listdir(path+'.'):
             if filename[:10]=='quartet{0:03}'.format(quartet):
-                with open(folder+filename,'r') as file:
+                with open(path+filename,'r') as file:
                     msa=file.readlines()
 
                 # extract the single sequences of the alignment
@@ -75,9 +76,11 @@ def main():
                 rel_frequencies = [compute_freq(x) for x in permutations]
 
                 # save site-pattern frequencies in a csv-file
-                rows = ["{},".format(filename) + ','.join(map(str, single_freq.values())) + ",{}\n".format(quartet) for single_freq in rel_frequencies]
+                rows = ["{},".format(filename) + ','.join(map(str, single_freq.values())) + ", NaN \n" for single_freq in rel_frequencies]
                 data_file = open(data_file_name, 'a')
-                data_file.writelines(row for row in rows)
+
+                for row in rows:
+                    data_file.writelines(row)
 
                 data_file.flush()
                 data_file.close()

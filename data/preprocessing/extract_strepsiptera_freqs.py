@@ -26,7 +26,7 @@ logging.debug(patterns)
 logging.debug(header)
 
 # create data file
-data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/flytrap_freqs.csv'
+data_file_name = sys.argv[1] if len(sys.argv) > 1 else '../processed/strepsiptera/quartet/strepsiptera_freqs.csv'
 data_file = open(data_file_name, 'w')
 data_file.write("file," + ','.join(header) + ",label\n")
 data_file.flush()
@@ -41,7 +41,6 @@ def compute_freq(seq):
     site_patterns.sort()
     site_patterns = [x.upper() for x in site_patterns]
     logging.debug(site_patterns)
-    print(site_patterns)
 
     abs_frequencies = dict(collections.Counter(site_patterns))
     logging.debug(abs_frequencies)
@@ -70,7 +69,7 @@ for subdir, dirs, files in os.walk(path):
         rel_frequencies = [compute_freq(single_seq)]
         logging.debug(rel_frequencies)
 
-        data_file.writelines([file + "," + ','.join(map(str, single_freq.values())) + "," + '1000' + "\n" for single_freq in rel_frequencies])
+        data_file.writelines([file + "," + ','.join(map(str, single_freq.values())) + ", NaN \n" for single_freq in rel_frequencies])
 
         data_file.flush()
 

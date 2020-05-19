@@ -53,3 +53,8 @@ The network can then be trained via
 ```sh
 python3 mlp.py config/config_StrepsipteraNN.yaml
 ```
+To extract for which strepsiptera quartets the network infers a Farris-type or Felsenstein-type tree excecute
+```sh
+python3 test_strepsiptera_quartets.py [-h]
+```
+The output lists the number of permutations of a quartet for which the network infers a Farris-type or Felsenstein-type tree.
