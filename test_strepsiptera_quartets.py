@@ -8,6 +8,7 @@ import numpy as np
 import tensorflow as tf
 import os
 import pandas as pd
+import logging
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-c", "--config", default="config/config_StrepsipteraNN.yaml", help="config file of net")
@@ -63,4 +64,8 @@ pivot = pd.pivot_table(output_df, values='Farris', index=['quartet'], aggfunc=np
 # for all other quartets the network infers a Felsenstein-type tree
 pivot['Felsenstein']=int(len(output_df)/24)-pivot['Farris']
 
-pivot.to_csv('test_' + net + '_strepsiptera_quartets' +perm + '.csv', index=False)
+output_file = 'test_' + net + '_strepsiptera_quartets' +perm + '.csv'
+
+pivot.to_csv(output_file, index=False)
+
+logging.info("Wrote to " + output_file + ".")
