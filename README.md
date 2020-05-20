@@ -58,3 +58,8 @@ To extract for which strepsiptera quartets the network infers a Farris-type or F
 python3 test_strepsiptera_quartets.py [-h]
 ```
 The output lists the number of permutations of a quartet for which the network infers a Farris-type or Felsenstein-type tree.
+Testing of the network on simulated data can be done by executing:
+```sh
+python3 test_simulated_strepsiptera_alignments.py [-h]
+```
+
